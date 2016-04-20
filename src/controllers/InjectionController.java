@@ -19,7 +19,7 @@ public class InjectionController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("index.jsp");
 		mv.addObject("allData", injectionDAO.getSQLResults(q));
-		//mv.addObject("headers", injectionDAO.getSQLResults(q));
+		mv.addObject("headers", injectionDAO.getHeaders(q));
 		
 		return mv;
 	}

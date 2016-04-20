@@ -13,6 +13,32 @@ public class InjectionDbDAO implements InjectionDAO {
 	private static final String URL = "jdbc:mysql://localhost:3306/companydb";
 
 	@Override
+	public List<String> getHeaders(String query) {
+		List<String> allHeaders = new ArrayList<String>();
+
+		try {
+			Class.forName(DRIVER_CLASS_NAME);
+			Connection conn = DriverManager.getConnection(URL, "student", "student");
+			Statement statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery(query);
+			
+			// get headers and add to ListList
+			ResultSetMetaData rsmd = rs.getMetaData();
+			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+				allHeaders.add(rsmd.getColumnName(i));
+			}
+			
+			rs.close();
+			statement.close();
+			conn.close();
+		}
+		catch (Exception e) {
+			System.err.println(e);
+		}
+		return allHeaders;
+		
+	}
+	@Override
 	public List<List<String>> getSQLResults(String query) {
 		List<List<String>> allData = new ArrayList<List<String>>();
 		
@@ -22,15 +48,8 @@ public class InjectionDbDAO implements InjectionDAO {
 			Statement statement = conn.createStatement();
 			ResultSet rs = statement.executeQuery(query);
 			
-			// get headers and add to ListList
-			List<String> allHeaders = new ArrayList<String>();
-			ResultSetMetaData rsmd = rs.getMetaData();
-			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-				allHeaders.add(rsmd.getColumnName(i));
-			}
-			allData.add(allHeaders);
-			
 			// get column values and add to ListList
+			ResultSetMetaData rsmd = rs.getMetaData();
 			while (rs.next()) {
 				List<String> allValues = new ArrayList<String>();
 				for (int i = 1; i <= rsmd.getColumnCount(); i++) {

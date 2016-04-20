@@ -60,18 +60,20 @@
 			<div class="col-lg-12">	
 				<table id="allData" class="display compact" cellspacing="0" width="100%">
 					<thead>
-						<c:forEach var="column" items="${allData}">
-							<tr>
-								<th>${column}</th>
-							</tr>
+						<tr>
+						<c:forEach var="column" items="${headers}">
+							<th>${column}</th>
 						</c:forEach>	
+						</tr>
 					</thead>
 					<tbody>
-					<c:forEach var="value" items="${column}">
+						<c:forEach var="row" items="${allData}">
 						<tr>
-							<td>${value}</td>
+							<c:forEach var="value" items="${row}">
+								<td>${value}</td>
+							</c:forEach>
 						</tr>
-					</c:forEach>
+						</c:forEach>
 					</tbody>
 				</table>
 				</div>
@@ -88,7 +90,7 @@
 						<span class="input-group-btn">
         					<button class="btn btn-secondary" type="submit">Go!</button>
       					</span>
-  						<input type="text" name="query" class="form-control" placeholder="SELECT * FROM..." aria-describedby="sizing-addon1">
+  						<input type="text" name="query" class="form-control" placeholder="SELECT * FROM whatever you like..." aria-describedby="sizing-addon1">
 					</div>
 					</form>
 					<br>			
