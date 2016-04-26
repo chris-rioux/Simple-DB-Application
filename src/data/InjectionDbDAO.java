@@ -38,6 +38,7 @@ public class InjectionDbDAO implements InjectionDAO {
 		return allHeaders;
 		
 	}
+	
 	@Override
 	public List<List<String>> getSQLResults(String query) {
 		List<List<String>> allData = new ArrayList<List<String>>();
