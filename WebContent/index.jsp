@@ -90,11 +90,14 @@
 						<span class="input-group-btn">
         					<button class="btn btn-secondary" type="submit">Go!</button>
       					</span>
-  						<input type="text" name="query" class="form-control" placeholder="SELECT * FROM whatever you like..." aria-describedby="sizing-addon1">
+  						<input type="text" name="query" class="form-control" value="SELECT * FROM employees" aria-describedby="sizing-addon1">
 					</div>
 					</form>
 					<br>			
-				</div>
+				</div><!-- /.row -->
+				<div class="row" id="schema">
+					<img class="img-responsive center-block" src="img/companydb.png" style="margin:0 auto;"/>
+				</div><!-- /.row -->
 			</div>
 		</div>
 	</section>
@@ -111,7 +114,7 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3" style="text-align:center">
 			<a href="https://twitter.com/chrisrioux_" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>&nbsp;&nbsp;
-			<a href="https://www.linkedin.com/in/chris-rioux-b500569a" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>&nbsp;&nbsp;
+			<a href="https://www.linkedin.com/in/chrisrioux" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>&nbsp;&nbsp;
 			<a href="https://github.com/chris-rioux" target="_blank"><i class="fa fa-github fa-2x"></i></a>
 			</br>
       	</div>
@@ -139,7 +142,7 @@
 									<li><a href="https://github.com/chris-rioux" target="_blank"
 										class="btn btn-primary-outline"><i
 										class="fa fa-github-alt fa-fw"></i>&nbsp;&nbsp;Github</a></li><br>
-									<li><a href="https://www.linkedin.com/in/chris-rioux-b500569a"
+									<li><a href="https://www.linkedin.com/in/chrisrioux"
 										target="_blank" class="btn btn-primary-outline"><i
 										class="fa fa-linkedin-square fa-fw"></i>&nbsp;&nbsp;Linkedin</a></li><br>								
 								</ul>
@@ -172,9 +175,22 @@
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
     
     <script>
-    	$(document).ready(function() {
-        	$('#allData').DataTable();
+    $(document).ready(function() {
+    	$('#allData').DataTable( {
+    		scrollY:        '50vh',
+            scrollCollapse: true	
     	} );
+	} );
+    </script>
+    
+    <!-- jQuery Image Resizer -->
+    <script>
+    var logoHeight = $('#schema img').height();
+    if (logoHeight < 104) {
+        var margintop = (104 - logoHeight) / 2;
+        $('#schema img').css('margin-top', margintop);
+    }
+    
     </script>
     
   </body>
