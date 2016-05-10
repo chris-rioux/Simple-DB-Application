@@ -28,7 +28,7 @@
 </head>
 <body class="bg-faded">
  
-<nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+	<nav id="topNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <button class="navbar-toggler hidden-md-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
             ☰
@@ -50,62 +50,24 @@
             </ul>
         </div>
     </div><!-- /.container -->
-</nav>
+	</nav>
 
-<c:choose>
-	<c:when test="${!empty allData}">
-
-	<section id="two">
-		<div class="container wow fadeInUp">
-			<div class="col-lg-12">	
-				<table id="allData" class="display compact" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-						<c:forEach var="column" items="${headers}">
-							<th>${column}</th>
-						</c:forEach>	
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="row" items="${allData}">
-						<tr>
-							<c:forEach var="value" items="${row}">
-								<td>${value}</td>
-							</c:forEach>
-						</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				</div>
-		</div><!-- /.container -->
-	</section><!-- /#two -->
-	</c:when>
-	<c:otherwise>	
-	<section id="one">
-		<div class="container wow fadeInUp">
-			<div class="row">
-				<div class="col-lg-12">
-					<form action="getSQLResults.do" method="POST">
-					<div class="input-group input-group-lg">
-						<span class="input-group-btn">
-        					<button class="btn btn-secondary" type="submit">Go!</button>
-      					</span>
-  						<input type="text" name="query" class="form-control" value="SELECT * FROM employees" aria-describedby="sizing-addon1">
-					</div>
-					</form>
-					<br>			
-				</div><!-- /.row -->
-				<div class="row" id="schema">
-					<img class="img-responsive center-block" src="img/companydb.png"/>
-				</div><!-- /.row -->
-			</div>
-		</div>
-	</section>
+	<!-- Gosling --> 
+	<div class="container-fluid" style="margin-top:125px;text-align:center;">
+		<div class="row" id="gosling">
+			<h5 class="text-xs-center">Looks like something happened, <br/> But Ryan was here to handle it...</h5>
+		    	<ul class="list-inline banner-social-buttons center-block">
+                    <li>
+                        <a href="index.jsp" class="btn btn-default btn-lg center-block"><i class="fa fa-home fa-fw"></i> <span class="network-name">Home</span></a>
+                    </li>
+                </ul>
+			<a href="https://www.facebook.com/ryangoslingofficialpage/" target="_blank"><img class="img-responsive center-block" src="img/gosling404.jpeg"/></a>
+		</div><!-- /.row -->
+	</div>
+	
 	<hr>
-	</c:otherwise>
-</c:choose>
 
-<footer>
+	<footer>
 	<div class="row">
 		<div class="col-lg-12">
 			<p class="text-xs-center"><a href="http://www.chrisriouxdevelopment.com" target="_blank">Chris Rioux Development</a> &copy; 2016</p>
@@ -119,10 +81,10 @@
 			</br>
       	</div>
 	</div>
-</footer>
+	</footer>
 
-<!-- Modals -->
-<div id="aboutModal" class="modal fade" tabindex="-1" role="dialog"
+	<!-- Modals -->
+	<div id="aboutModal" class="modal fade" tabindex="-1" role="dialog"
 		aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -171,24 +133,12 @@
     
     <script src="js/scripts.js"></script>
     
-    <!-- jQuery DataTable -->
-    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-    
-    <script>
-    $(document).ready(function() {
-    	$('#allData').DataTable( {
-    		scrollY:        '50vh',
-            scrollCollapse: true	
-    	} );
-	} );
-    </script>
-    
     <!-- jQuery Image Resizer -->
     <script>
-    var logoHeight = $('#schema img').height();
+    var logoHeight = $('#gosling img').height();
     if (logoHeight < 104) {
         var margintop = (104 - logoHeight) / 2;
-        $('#schema img').css('margin-top', margintop);
+        $('#gosling img').css('margin-top', margintop);
     }
     </script>
     
