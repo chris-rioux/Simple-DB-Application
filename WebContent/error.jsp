@@ -38,9 +38,7 @@
 
         <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
             <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#two">Table</a>
-                </li>
+                
             </ul>
 
             <ul class="nav navbar-nav pull-xs-right">
